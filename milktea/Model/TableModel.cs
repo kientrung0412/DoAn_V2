@@ -12,6 +12,7 @@ namespace milktea.Model
         public static void ShowIcon(FlowLayoutPanel flowLayoutPanel)
         {
             List<Table> tables = TableDAO.Show();
+//            lặp qua lần lượt các bàn
             foreach (var table in tables)
             {
                 Button btn = new Button();
@@ -19,6 +20,8 @@ namespace milktea.Model
                 btn.Name = table.Id;
                 btn.Text = nameBtn;
                 btn.Font = new Font("Segoe UI", 14F);
+                btn.Size = new Size(100, 50);
+//                hiển thị trang thái bàn
                 switch (table.Status)
                 {
                     case 1:
@@ -35,8 +38,8 @@ namespace milktea.Model
                         break;
 
                 }
-
-                btn.Size = new Size(100, 50);
+               
+                //xác định vị trí nút được gắn vào panel nào
                 flowLayoutPanel.Controls.Add(btn);
             }
         }

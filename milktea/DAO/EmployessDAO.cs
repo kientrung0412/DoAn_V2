@@ -9,6 +9,7 @@ namespace WindowsFormsApp4.Imp
     {
         public static Boolean Login(Employess employess)
         {
+//          2 dòng này buộc phải có
             var conn = Conn();
             conn.Open();
             
