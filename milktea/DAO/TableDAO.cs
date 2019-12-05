@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
-using WindowsFormsApp4.Entity;
+using milktea.Entity;
 
-namespace WindowsFormsApp4.Imp
+namespace milktea.Imp
 {
     public class TableDAO : ConnDB
     {
-        public static List<Table> Show()
+        public static List<Table> SelectAll(int n)
         {
             List<Table> tables = new List<Table>();
 
@@ -16,7 +17,20 @@ namespace WindowsFormsApp4.Imp
             var conn = Conn();
             conn.Open();
 
-            String sql = "select * from main.[table]";
+            String sql = "select * from main.[table] ORDER BY main.[table].idTable ASC";
+            switch (n)
+            {
+                case 1:
+                    sql = "select * from main.[table] ORDER BY main.[table].idTable ASC";
+                    break;
+                case 2:
+                    sql = "select * from main.[table] ORDER BY main.[table].idTable DESC";
+                    break;
+                case 3:
+                    sql = "select * from main.[table]";
+                    break;
+            }
+
 
             SqlCommand command = new SqlCommand();
             command.Connection = conn;
@@ -30,11 +44,32 @@ namespace WindowsFormsApp4.Imp
                 //Cột thứ 1 có index là 0
                 table.Id = reader.GetInt32(0).ToString();
                 table.Status = reader.GetInt32(1);
-                
+
                 tables.Add(table);
             }
 
             return tables;
+        }
+
+        public static DataSet SelectTable()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            var conn = Conn();
+            conn.Open();
+
+            String sql = "SELECT  main.[table].idTable, main.statusTable.nameStatusTable FROM main.statusTable INNER JOIN main.[table] ON main.[table].idStatusTable = main.statusTable.idStatusTable ";
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = conn;
+            command.CommandText = sql;
+
+            adapter.SelectCommand = command;
+
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+
+            return dataSet;
         }
     }
 }

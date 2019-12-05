@@ -1,9 +1,9 @@
 ﻿﻿using System;
 using System.Data.Common;
 using System.Data.SqlClient;
-using WindowsFormsApp4.Entity;
+ using milktea.Entity;
 
-namespace WindowsFormsApp4.Imp
+ namespace milktea.Imp
 {
     public class EmployessDAO : ConnDB
     {

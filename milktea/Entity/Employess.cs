@@ -1,6 +1,6 @@
 ﻿﻿using System;
 
-namespace WindowsFormsApp4.Entity
+namespace milktea.Entity
 {
     public class Employess
     {

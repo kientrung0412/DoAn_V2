@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using WindowsFormsApp4.Entity;
-using WindowsFormsApp4.Imp;
+using milktea.Entity;
+using milktea.Imp;
 
 namespace milktea.Model
 {
     public class TableModel
     {
-        public static void ShowIcon(FlowLayoutPanel flowLayoutPanel)
+        public static void ShowIcon(FlowLayoutPanel flowLayoutPanel, int x)
         {
-            List<Table> tables = TableDAO.Show();
+            List<Table> tables = TableDAO.SelectAll(x);
 //            lặp qua lần lượt các bàn
             foreach (var table in tables)
             {
@@ -36,11 +38,21 @@ namespace milktea.Model
                     case 4:
                         btn.BackColor = Color.Gray;
                         break;
-
                 }
-               
+
                 //xác định vị trí nút được gắn vào panel nào
                 flowLayoutPanel.Controls.Add(btn);
+            }
+        }
+
+        public static void ShowTable(DataGridView gridView)
+        {
+            DataSet dataSet = TableDAO.SelectTable();
+            if (dataSet.Tables.Count > 0)
+            {
+                dataSet.Tables[0].Columns[0].ColumnName = "Số bàn";
+                dataSet.Tables[0].Columns[1].ColumnName = "Trạng thái";
+                gridView.DataSource = dataSet.Tables[0];
             }
         }
     }

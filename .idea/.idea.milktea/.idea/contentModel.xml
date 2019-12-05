@@ -16,10 +16,16 @@
           <e p="EmployessDAO.cs" t="Include" />
           <e p="TableDAO.cs" t="Include" />
         </e>
+        <e p="demoTable.cs" t="Include" />
+        <e p="demoTable.Designer.cs" t="Include" />
+        <e p="demoTable.resx" t="Include" />
         <e p="Entity" t="Include">
           <e p="Employess.cs" t="Include" />
           <e p="Table.cs" t="Include" />
         </e>
+        <e p="frmMain.cs" t="Include" />
+        <e p="frmMain.Designer.cs" t="Include" />
+        <e p="frmMain.resx" t="Include" />
         <e p="Main.cs" t="Include" />
         <e p="Main.Designer.cs" t="Include" />
         <e p="Main.resx" t="Include" />

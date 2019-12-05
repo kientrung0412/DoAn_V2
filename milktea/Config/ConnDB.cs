@@ -1,7 +1,7 @@
 ﻿﻿using System;
 using System.Data.SqlClient;
 
-namespace WindowsFormsApp4.Imp
+namespace milktea.Imp
 {
     public abstract class ConnDB
     {
