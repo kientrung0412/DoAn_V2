@@ -18,14 +18,18 @@ namespace milktea.Imp
             conn.Open();
 
             String sql = "select * from main.[table] ORDER BY main.[table].idTable ASC";
+            
             switch (n)
             {
+                //tăng đần
                 case 1:
                     sql = "select * from main.[table] ORDER BY main.[table].idTable ASC";
                     break;
+                //giảm dần
                 case 2:
                     sql = "select * from main.[table] ORDER BY main.[table].idTable DESC";
                     break;
+                //theo loại
                 case 3:
                     sql = "select * from main.[table]";
                     break;
@@ -57,7 +61,8 @@ namespace milktea.Imp
 
             var conn = Conn();
             conn.Open();
-
+            
+            //lấy 2 bảng statusTable và table
             String sql = "SELECT  main.[table].idTable, main.statusTable.nameStatusTable FROM main.statusTable INNER JOIN main.[table] ON main.[table].idStatusTable = main.statusTable.idStatusTable ";
 
             SqlCommand command = new SqlCommand();

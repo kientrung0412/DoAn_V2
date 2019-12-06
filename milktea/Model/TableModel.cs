@@ -11,7 +11,20 @@ namespace milktea.Model
 {
     public class TableModel
     {
-        public static void ShowIcon(FlowLayoutPanel flowLayoutPanel, int x)
+        private static void showStatus(object sender, EventArgs e)
+        {
+            //Án vào bàn  còn chống
+            Button btn = sender as Button;
+            var name = btn.Name;
+            MessageBox.Show(name);
+        }
+
+        private static void newOrder()
+        {
+            MessageBox.Show("ok");
+        }
+
+        public static void ShowIcon(FlowLayoutPanel flowLayoutPanel, Panel panel, int x)
         {
             List<Table> tables = TableDAO.SelectAll(x);
 //            lặp qua lần lượt các bàn
@@ -28,15 +41,19 @@ namespace milktea.Model
                 {
                     case 1:
                         btn.BackColor = Color.Chartreuse;
+                        btn.Click += showStatus;
                         break;
                     case 2:
                         btn.BackColor = Color.Firebrick;
+                        btn.Click += showStatus;
                         break;
                     case 3:
                         btn.BackColor = Color.Goldenrod;
+                        btn.Click += showStatus;
                         break;
                     case 4:
                         btn.BackColor = Color.Gray;
+                        btn.Click += showStatus;
                         break;
                 }
 
@@ -47,6 +64,7 @@ namespace milktea.Model
 
         public static void ShowTable(DataGridView gridView)
         {
+            //Lấy data dưới dạng bảng
             DataSet dataSet = TableDAO.SelectTable();
             if (dataSet.Tables.Count > 0)
             {

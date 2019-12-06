@@ -26,9 +26,6 @@
         <e p="frmMain.cs" t="Include" />
         <e p="frmMain.Designer.cs" t="Include" />
         <e p="frmMain.resx" t="Include" />
-        <e p="Main.cs" t="Include" />
-        <e p="Main.Designer.cs" t="Include" />
-        <e p="Main.resx" t="Include" />
         <e p="milktea.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="TableModel.cs" t="Include" />
