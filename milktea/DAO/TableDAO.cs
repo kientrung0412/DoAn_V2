@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using milktea.Entity;
 
 namespace milktea.Imp
@@ -18,7 +19,7 @@ namespace milktea.Imp
             conn.Open();
 
             String sql = "select * from main.[table] ORDER BY main.[table].idTable ASC";
-            
+
             switch (n)
             {
                 //tăng đần
@@ -57,24 +58,112 @@ namespace milktea.Imp
 
         public static DataSet SelectTable()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-
             var conn = Conn();
-            conn.Open();
-            
-            //lấy 2 bảng statusTable và table
-            String sql = "SELECT  main.[table].idTable, main.statusTable.nameStatusTable FROM main.statusTable INNER JOIN main.[table] ON main.[table].idStatusTable = main.statusTable.idStatusTable ";
+            String sql =
+                "SELECT  main.[table].idTable, main.[table].idStatusTable, main.statusTable.nameStatusTable FROM main.statusTable INNER JOIN main.[table] ON main.[table].idStatusTable = main.statusTable.idStatusTable order by main.[table].idTable ASC ";
 
-            SqlCommand command = new SqlCommand();
-            command.Connection = conn;
-            command.CommandText = sql;
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
 
-            adapter.SelectCommand = command;
-
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-
-            return dataSet;
+            return ds;
         }
+
+        public static Boolean Add(int i)
+        {
+            String sql = "SELECT * FROM main.[table]";
+            var conn = Conn();
+            
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                DataRow row = ds.Tables[0].NewRow();
+                row[1] = i;
+                ds.Tables[0].Rows.Add(row);
+
+                if (adapter.Update(ds.Tables[0]) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static Boolean Delete(int num)
+        {
+            String sql = "SELECT * FROM main.[table] order by main.[table].idTable ASC";
+            var conn = Conn();
+            
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                DataRow row = ds.Tables[0].Rows[num];
+                row.Delete();
+
+                if (adapter.Update(ds.Tables[0]) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+//        public static Boolean Update(Table table)
+//        {
+//            Boolean b = false;
+//
+//            var conn = Conn();
+//            conn.Open();
+//
+//            String sql =
+//                String.Format(
+//                    "update main.[table] set main.[table].idStatusTable = {0} where main.[table].idTable = {1}",
+//                    table.Status, table.Id);
+//
+//            try
+//            {
+//                SqlCommand command = new SqlCommand();
+//                command.Connection = conn;
+//                command.CommandText = sql;
+//
+//                int n = command.ExecuteNonQuery();
+//                if (n > 0)
+//                {
+//                    b = true;
+//                }
+//                else
+//                {
+//                    b = false;
+//                }
+//            }
+//            catch (Exception e)
+//            {
+//                b = false;
+//            }
+//
+//            return b;
+//        }
     }
 }

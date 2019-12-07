@@ -33,7 +33,7 @@ namespace milktea
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+                new System.ComponentModel.ComponentResourceManager(typeof(milktea.frmMain));
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -57,25 +57,16 @@ namespace milktea
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flpTable
-            // 
             this.flpTable.AutoScroll = true;
             this.flpTable.Location = new System.Drawing.Point(12, 67);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(520, 383);
             this.flpTable.TabIndex = 1;
-            // 
-            // panel1
-            // 
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(520, 33);
             this.panel1.TabIndex = 2;
-            // 
-            // toolStrip1
-            // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
@@ -85,9 +76,6 @@ namespace milktea
             this.toolStrip1.Size = new System.Drawing.Size(520, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolTable";
-            // 
-            // toolStripButton1
-            // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.Image = ((System.Drawing.Image) (resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -95,9 +83,6 @@ namespace milktea
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "Tăng dần";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
-            // 
-            // toolStripButton2
-            // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton2.Image = ((System.Drawing.Image) (resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -105,9 +90,6 @@ namespace milktea
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "Giảm dần";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // tbntType
-            // 
             this.tbntType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbntType.Image = ((System.Drawing.Image) (resources.GetObject("tbntType.Image")));
             this.tbntType.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -115,52 +97,31 @@ namespace milktea
             this.tbntType.Size = new System.Drawing.Size(23, 22);
             this.tbntType.Text = "Theo loại";
             this.tbntType.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
-            // manageTool
-            // 
             this.manageTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
                 {this.manageMenu, this.manageEmp, this.managePill});
             this.manageTool.Name = "manageTool";
             this.manageTool.Size = new System.Drawing.Size(62, 20);
             this.manageTool.Text = "Quản trị";
-            // 
-            // manageMenu
-            // 
             this.manageMenu.Image = ((System.Drawing.Image) (resources.GetObject("manageMenu.Image")));
             this.manageMenu.Name = "manageMenu";
             this.manageMenu.Size = new System.Drawing.Size(128, 22);
             this.manageMenu.Text = "Thự đơn";
-            // 
-            // manageEmp
-            // 
             this.manageEmp.Image = ((System.Drawing.Image) (resources.GetObject("manageEmp.Image")));
             this.manageEmp.Name = "manageEmp";
             this.manageEmp.Size = new System.Drawing.Size(128, 22);
             this.manageEmp.Text = "Nhân viên";
-            // 
-            // managePill
-            // 
             this.managePill.Image = ((System.Drawing.Image) (resources.GetObject("managePill.Image")));
             this.managePill.Name = "managePill";
             this.managePill.Size = new System.Drawing.Size(128, 22);
             this.managePill.Text = "Hóa đơn";
-            // 
-            // giúpĐỡToolStripMenuItem
-            // 
             this.giúpĐỡToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.about});
             this.giúpĐỡToolStripMenuItem.Name = "giúpĐỡToolStripMenuItem";
             this.giúpĐỡToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.giúpĐỡToolStripMenuItem.Text = "Giúp đỡ";
-            // 
-            // about
-            // 
             this.about.Image = ((System.Drawing.Image) (resources.GetObject("about.Image")));
             this.about.Name = "about";
             this.about.Size = new System.Drawing.Size(125, 22);
             this.about.Text = "Thông tin";
-            // 
-            // menuStrip1
-            // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
                 {this.manageTool, this.giúpĐỡToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -168,24 +129,15 @@ namespace milktea
             this.menuStrip1.Size = new System.Drawing.Size(884, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // pnTableStatus
-            // 
             this.pnTableStatus.Location = new System.Drawing.Point(538, 67);
             this.pnTableStatus.Name = "pnTableStatus";
             this.pnTableStatus.Size = new System.Drawing.Size(334, 383);
             this.pnTableStatus.TabIndex = 3;
-            // 
-            // panel3
-            // 
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(538, 27);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(332, 32);
             this.panel3.TabIndex = 4;
-            // 
-            // label1
-            // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
@@ -195,15 +147,9 @@ namespace milktea
             this.label1.TabIndex = 0;
             this.label1.Text = "Nguyễn KIên Trung";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // timer1
-            // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lbTime
-            // 
             this.lbTime.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lbTime.Location = new System.Drawing.Point(12, 456);
@@ -211,9 +157,6 @@ namespace milktea
             this.lbTime.Size = new System.Drawing.Size(187, 22);
             this.lbTime.TabIndex = 5;
             this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // frmMain
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 481);

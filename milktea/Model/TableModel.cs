@@ -16,13 +16,14 @@ namespace milktea.Model
             //Án vào bàn  còn chống
             Button btn = sender as Button;
             var name = btn.Name;
-            MessageBox.Show(name);
+            frmMain main = new frmMain();
+//            main.pn
         }
 
-        private static void newOrder()
-        {
-            MessageBox.Show("ok");
-        }
+//        private static void newOrder()
+//        {
+//            MessageBox.Show("ok");
+//        }
 
         public static void ShowIcon(FlowLayoutPanel flowLayoutPanel, Panel panel, int x)
         {
@@ -69,8 +70,43 @@ namespace milktea.Model
             if (dataSet.Tables.Count > 0)
             {
                 dataSet.Tables[0].Columns[0].ColumnName = "Số bàn";
-                dataSet.Tables[0].Columns[1].ColumnName = "Trạng thái";
+//                dataSet.Tables[0].Columns[1].ColumnMapping = MappingType.Hidden;
+                dataSet.Tables[0].Columns[2].ColumnName = "Trạng thái";
                 gridView.DataSource = dataSet.Tables[0];
+            }
+        }
+
+        public static void Add(int i)
+        {
+            if (TableDAO.Add(i))
+            {
+                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+//        public static void Update(Table table)
+//        {
+//            if (TableDAO.Update(table))
+//            {
+//                MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+//            }
+//            else
+//            {
+//                MessageBox.Show("Cập nhật thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//            }
+//        }
+        public static void Delete(int num)
+        {
+            if (TableDAO.Delete(num))
+            {
+                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
